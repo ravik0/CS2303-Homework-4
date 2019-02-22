@@ -24,6 +24,11 @@ Grid::Grid(int nSquaresOnASide, int doodlebugs, int ants, int g,int seed, int st
 	{
 		myGridCells_ptr_array[i] = new Cell[sizeOfGrid]; // allocate memory for columns in each row
 	}
+	for(int i = 0; i < sizeOfGrid; i++) {
+		for(int j = 0; j < sizeOfGrid; j++) {
+			myGridCells_ptr_array[i][j].setPosition(i, j);
+		}
+	}
 }
 
 bool Grid::setCellOccupant(int r, int c, occupationStatus g)

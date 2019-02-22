@@ -17,9 +17,7 @@ Cell::Cell() {
 	column = -1;
 }
 
-Cell::Cell(int r, int c) {
-	guest = empty;
-	guy = nullptr;
+void Cell::setPosition(int r, int c) {
 	row = r;
 	column = c;
 }
@@ -50,6 +48,13 @@ occupationStatus Cell::getOccupant()
 	return guest;
 }
 
+int Cell::getRow() {
+	return row;
+}
+
+int Cell::getCol() {
+	return column;
+}
 Cell::~Cell() {
 	// TODO Auto-generated destructor stub
 }

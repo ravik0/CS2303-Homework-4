@@ -16,11 +16,13 @@ enum occupationStatus { empty, ant, doodlebug};
 class Cell {
 public:
 	Cell();
-	Cell(int r, int c);
+	void setPosition(int r, int c);
 	bool setOccupant(occupationStatus g);
 	occupationStatus getOccupant();
 	Organism* getCellOwner();
 	virtual ~Cell();
+	int getRow();
+	int getCol();
 private:
 	occupationStatus guest;
 	Organism* guy;

@@ -22,6 +22,7 @@ public:
 	bool doodleBreedTest();
 	bool doodleEatTest();
 	bool doodleDietest();
+	bool testFindEmptyCell();
 
 
 	virtual ~Tests2();
