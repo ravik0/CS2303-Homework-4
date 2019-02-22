@@ -22,6 +22,10 @@ void Cell::setPosition(int r, int c) {
 	column = c;
 }
 
+Organism* Cell::getCellOwner() {
+	return guy;
+}
+
 bool Cell::setOccupant(occupationStatus g)
 {
 	bool result = true;
@@ -41,6 +45,10 @@ bool Cell::setOccupant(occupationStatus g)
 		result = true;
 	}
 	return result;
+}
+
+void Cell::setOrganism(Organism* set) {
+	guy = set;
 }
 
 occupationStatus Cell::getOccupant()

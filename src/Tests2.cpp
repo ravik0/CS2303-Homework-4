@@ -155,17 +155,21 @@ bool Tests2::doodleDietest()
 bool Tests2::testFindEmptyCell() {
 	bool ok1 = false;
 	bool ok2 = false;
+	bool ok3 = false;
 	Grid* theGrid = new Grid(5);
 	theGrid->setCellOccupant(3, 2, ant);
 	theGrid->setCellOccupant(1,2,ant);
 	theGrid->setCellOccupant(2,3,ant);
-	Cell* emptyCell = theGrid->findOpenCell(2, 2);
+	Cell* emptyCell = theGrid->findOpenCell(2, 2, empty);
 	if(emptyCell->getRow() == 2 && emptyCell->getCol() == 1) ok1 = true;
 	theGrid->setCellOccupant(0,1,ant);
 	theGrid->setCellOccupant(1,0,ant);
-	Cell* emptyCell2 = theGrid->findOpenCell(0,0);
+	Cell* emptyCell2 = theGrid->findOpenCell(0,0, empty);
 	if(emptyCell2 == nullptr) ok2 = true;
-	return ok1 && ok2;
+	Cell* antCell = theGrid->findOpenCell(3,3,ant);
+	if(antCell->getRow() == 3 && antCell->getCol() == 2) ok3 = true;
+	theGrid->printGrid();
+	return ok1 && ok2 && ok3;
 
 }
 

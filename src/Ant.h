@@ -19,8 +19,8 @@ private:
 public:
 	Ant(int r=0, int c = 0);
 	bool move(Cell* newCell);
-	bool breed();
-	bool starve();
+	bool breed(Cell* newCell);
+	bool canBreed();
 	int getRow();
 	int getCol();
 	~Ant();

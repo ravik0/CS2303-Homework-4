@@ -21,6 +21,7 @@ public:
 	occupationStatus getOccupant();
 	Organism* getCellOwner();
 	virtual ~Cell();
+	void setOrganism(Organism* set);
 	int getRow();
 	int getCol();
 private:

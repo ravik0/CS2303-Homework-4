@@ -12,6 +12,7 @@ Ant::Ant(int r, int c) : Organism(true)
 {
 	row = r;
 	col = c;
+	timeStepsSurvived = 0;
 }
 
 bool Ant::move(Cell* newCell)
@@ -20,14 +21,14 @@ bool Ant::move(Cell* newCell)
 	return status;
 }
 
-bool Ant::breed()
+bool Ant::breed(Cell* newCell)
 {
 	bool status = true;
 	return status;
 }
 
-bool Ant::starve() {
-	return false;
+bool Ant::canBreed() {
+	return timeStepsSurvived >= 3;
 }
 
 int Ant::getCol() {

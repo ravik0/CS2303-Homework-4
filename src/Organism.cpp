@@ -8,19 +8,8 @@
 #include "Organism.h"
 
 Organism::Organism(bool b) {
-	amAnt = b;
 	timeStepsSurvived = 0;
 	stepRan = false;
-}
-
-bool Organism::isPrey()
-{
-	return amAnt;
-}
-
-void Organism::setAmAnt(bool b)
-{
-	amAnt = b;
 }
 
 void Organism::setStepRan(bool b) {

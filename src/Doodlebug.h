@@ -14,8 +14,8 @@ class Doodlebug: public Organism {
 public:
 	Doodlebug(int r, int c);
 	bool move(Cell* newCell);
-	bool breed();
-	bool eat();
+	bool breed(Cell* newCell);
+	bool canBreed();
 	bool starve();
 	int getRow();
 	int getCol();

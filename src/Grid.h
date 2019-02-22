@@ -15,9 +15,9 @@ public:
 	bool setCellOccupant(int r, int c, occupationStatus g);
 	occupationStatus getCellOccupant(int r, int c);
 	virtual ~Grid();
-	Cell* findOpenCell(int r, int c);
+	Cell* findOpenCell(int r, int c, occupationStatus toLookFor);
 	bool isValidLocation(int r, int c);
-	bool run();
+	int run();
 	void printEnding();
 	void printGrid();
 private:
