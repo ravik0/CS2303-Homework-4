@@ -7,18 +7,19 @@
 
 #ifndef DOODLEBUG_H_
 #define DOODLEBUG_H_
-
 #include "Organism.h"
+#include "Cell.h"
 
 class Doodlebug: public Organism {
 public:
-	Doodlebug();
 	Doodlebug(int r, int c);
-	bool move();
+	bool move(Cell* newCell);
 	bool breed();
 	bool eat();
 	bool starve();
-	virtual ~Doodlebug();
+	int getRow();
+	int getCol();
+	~Doodlebug();
 private:
 	int row;
 	int column;

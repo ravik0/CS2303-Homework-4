@@ -7,23 +7,28 @@
 
 #include "Organism.h"
 
-Organism::Organism() {
-	amAnt = false;
-	timeStepsSurvived = 0;
-	// TODO Auto-generated constructor stub
-
-}
 Organism::Organism(bool b) {
 	amAnt = b;
 	timeStepsSurvived = 0;
+	stepRan = false;
 }
+
 bool Organism::isPrey()
 {
 	return amAnt;
 }
+
 void Organism::setAmAnt(bool b)
 {
 	amAnt = b;
+}
+
+void Organism::setStepRan(bool b) {
+	stepRan = b;
+}
+
+bool Organism::getStepRan() {
+	return stepRan;
 }
 
 Organism::~Organism() {

@@ -7,16 +7,12 @@
 
 #include "Doodlebug.h"
 
-
-Doodlebug::Doodlebug() {
-	row = -1;
-	column = -1;
-}
-Doodlebug::Doodlebug(int r, int c) {
+Doodlebug::Doodlebug(int r, int c) : Organism(false) {
 	row = r;
 	column = c;
 }
-bool Doodlebug::move()
+
+bool Doodlebug::move(Cell* newCell)
 {
 	bool status = true;
 	return status;
@@ -35,6 +31,14 @@ bool Doodlebug::eat()
 bool Doodlebug::starve() {
 	bool didStarve = false;
 	return didStarve;
+}
+
+int Doodlebug::getRow() {
+	return row;
+}
+
+int Doodlebug::getCol() {
+	return column;
 }
 Doodlebug::~Doodlebug() {
 	// TODO Auto-generated destructor stub

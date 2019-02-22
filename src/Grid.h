@@ -11,17 +11,22 @@
 
 class Grid {
 public:
-	Grid();
-	Grid(int nSquaresOnASide);
+	Grid(int nSquaresOnASide = 20, int doodlebugs = 5, int ants = 100, int g = 1000, int seed = 1, int pause = 0);
 	bool setCellOccupant(int r, int c, occupationStatus g);
 	occupationStatus getCellOccupant(int r, int c);
 	virtual ~Grid();
 	Cell* findOpenCell(int r, int c);
 	bool isValidLocation(int r, int c);
 	bool run();
-	bool printEnding();
+	void printEnding();
+	void printGrid();
 private:
 	int sizeOfGrid;
+	int gens;
+	int doodleLeft;
+	int antsLeft;
+	bool pause;
+	Cell** myGridCells_ptr_array = nullptr;
 };
 
 #endif /* GRID_H_ */

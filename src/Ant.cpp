@@ -6,20 +6,15 @@
  */
 
 #include "Ant.h"
+#include "Cell.h"
 
-Ant::Ant()
-//:Organism(true)
-{
-
-}
-Ant::Ant(int r, int c)
-:Organism(true)
+Ant::Ant(int r, int c) : Organism(true)
 {
 	row = r;
 	col = c;
 }
 
-bool Ant::move()
+bool Ant::move(Cell* newCell)
 {
 	bool status = true;
 	return status;
@@ -31,6 +26,17 @@ bool Ant::breed()
 	return status;
 }
 
+bool Ant::starve() {
+	return false;
+}
+
+int Ant::getCol() {
+	return col;
+}
+
+int Ant::getRow() {
+	return row;
+}
 Ant::~Ant() {
 	// TODO Auto-generated destructor stub
 

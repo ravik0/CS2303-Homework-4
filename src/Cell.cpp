@@ -37,9 +37,10 @@ bool Cell::setOccupant(occupationStatus g)
 			guy = new Doodlebug(row, column);
 		}
 	}
-	else
-	{
-		result = false;
+	else if(g == empty) {
+		guy = nullptr;
+		guest = g;
+		result = true;
 	}
 	return result;
 }

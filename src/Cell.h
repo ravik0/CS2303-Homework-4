@@ -7,6 +7,7 @@
 
 #ifndef CELL_H_
 #define CELL_H_
+class Organism;
 #include "Organism.h"
 
 enum occupationStatus { empty, ant, doodlebug};
@@ -18,6 +19,7 @@ public:
 	Cell(int r, int c);
 	bool setOccupant(occupationStatus g);
 	occupationStatus getOccupant();
+	Organism* getCellOwner();
 	virtual ~Cell();
 private:
 	occupationStatus guest;

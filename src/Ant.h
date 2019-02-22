@@ -9,6 +9,7 @@
 #define ANT_H_
 
 #include "Organism.h"
+#include "Cell.h"
 
 class Ant: public Organism {
 private:
@@ -16,11 +17,13 @@ private:
 	int col = 0;
 
 public:
-	Ant();
 	Ant(int r=0, int c = 0);
-	bool move();
+	bool move(Cell* newCell);
 	bool breed();
-	 ~Ant();
+	bool starve();
+	int getRow();
+	int getCol();
+	~Ant();
 };
 
 #endif /* ANT_H_ */
