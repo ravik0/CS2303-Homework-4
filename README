@@ -14,3 +14,10 @@ gridSize denotes the length of one side of the square that the game happens it. 
 #generations denotes the amount of time steps that the program will run. Its default value is 1000
 seed is the seed that the program will use to randomize the values. Its default value is 1.
 pause can be any integer, any nonzero integer forces the program to wait for user input before continuing. Its default value is 0.
+	The main classes in this program are Organism, Ant, Doodlebug, Grid, and Cell. A grid is comprised up of cells, which contain 
+an Organism. Both ants and doodlebugs are Organisms, so a cell can either contain an ant, doodlebug, or be completely empty.
+	The Grid class is the main class, as it handles finding cells to move to as well as removing organisms from cells that they
+shouldn't be in.
+	Most functions were tested. The functions in the Cell class were tested peripherally, through other tests they were verified
+to work. The run() function in Grid was not tested by a function, but rather by human eye. All of its subcomponents, however, were tested.
+	I did not have much trouble with this assignment, besides figuring out how to get around circular class definitions.
