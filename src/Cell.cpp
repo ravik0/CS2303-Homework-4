@@ -64,6 +64,7 @@ int Cell::getCol() {
 	return column;
 }
 Cell::~Cell() {
-	// TODO Auto-generated destructor stub
+	if(guy != nullptr) ~guy;
+	delete this;
 }
 

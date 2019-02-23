@@ -40,7 +40,6 @@ bool Tests2::doTests()
 	//see whether they die
 	bool ok10 = doodleDietest();
 	bool ok11 = testFindEmptyCell();
-	if(ok11 == true) std::cout << "FindEmptyCell pass" << std::endl;
 	results = ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10 && ok11;
 	return results;
 }
@@ -168,9 +167,7 @@ bool Tests2::testFindEmptyCell() {
 	if(emptyCell2 == nullptr) ok2 = true;
 	Cell* antCell = theGrid->findOpenCell(3,3,ant);
 	if(antCell->getRow() == 3 && antCell->getCol() == 2) ok3 = true;
-	theGrid->printGrid();
 	return ok1 && ok2 && ok3;
-
 }
 
 Tests2::~Tests2() {

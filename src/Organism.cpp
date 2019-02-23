@@ -21,6 +21,6 @@ bool Organism::getStepRan() {
 }
 
 Organism::~Organism() {
-	// TODO Auto-generated destructor stub
+	delete this;
 }
 

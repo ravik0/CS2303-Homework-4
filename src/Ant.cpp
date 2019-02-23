@@ -18,12 +18,29 @@ Ant::Ant(int r, int c) : Organism(true)
 bool Ant::move(Cell* newCell)
 {
 	bool status = true;
+	if(newCell->getOccupant() != empty) {
+		status = false;
+	}
+	if(status) {
+		newCell->setOccupant(ant);
+		newCell->setOrganism(this);
+		row = newCell->getRow();
+		col = newCell -> getCol();
+	}
+	stepRan = true;
+	timeStepsSurvived++;
 	return status;
 }
 
 bool Ant::breed(Cell* newCell)
 {
 	bool status = true;
+	if(newCell->getOccupant() != empty) status = false;
+	else {
+		newCell->setOccupant(ant);
+		timeStepsSurvived = 0;
+		newCell->getCellOwner()->setStepRan(true);
+	}
 	return status;
 }
 
@@ -39,7 +56,7 @@ int Ant::getRow() {
 	return row;
 }
 Ant::~Ant() {
-	// TODO Auto-generated destructor stub
+	delete this;
 
 }
 

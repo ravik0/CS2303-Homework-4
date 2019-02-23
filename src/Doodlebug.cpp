@@ -16,7 +16,7 @@ Doodlebug::Doodlebug(int r, int c) : Organism(false) {
 bool Doodlebug::move(Cell* newCell)
 {
 	bool status = true;
-	if(newCell->getOccupant() == doodlebug) {
+	if(newCell->getOccupant() != empty) {
 		status = false;
 	}
 	else if(newCell->getOccupant() == empty) {
@@ -39,7 +39,7 @@ bool Doodlebug::move(Cell* newCell)
 bool Doodlebug::breed(Cell* newCell)
 {
 	bool status = true;
-	if(newCell->getOccupant() == ant) status = false;
+	if(newCell->getOccupant() != empty) status = false;
 	else {
 		newCell->setOccupant(doodlebug);
 		timeStepsSurvived = 0;
@@ -66,6 +66,6 @@ int Doodlebug::getCol() {
 	return column;
 }
 Doodlebug::~Doodlebug() {
-	// TODO Auto-generated destructor stub
+	delete this;
 }
 

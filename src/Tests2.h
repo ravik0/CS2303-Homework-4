@@ -24,7 +24,6 @@ public:
 	bool doodleDietest();
 	bool testFindEmptyCell();
 
-
 	virtual ~Tests2();
 };
 

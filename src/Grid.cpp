@@ -75,12 +75,12 @@ int Grid::run() {
 	bool done = false;
 	int g = 0;
 	while(!done) {
-		if(antsLeft == 0 || doodleLeft == 0) done = true; //if no more ants or doodlebugs, we're done
+		if(antsLeft <= 0 || doodleLeft <= 0) done = true; //if no more ants or doodlebugs, we're done
 		if(!done) {
 			for(int i = 0; i < sizeOfGrid; i++) {
 				for(int j = 0; j < sizeOfGrid; j++) {
 					Cell* theCell = &myGridCells_ptr_array[i][j];
-					if(theCell->getOccupant() == doodlebug) {
+					if(theCell->getOccupant() == doodlebug && !theCell->getCellOwner()->getStepRan()) {
 						//MOVING
 						Cell* moveTo = findOpenCell(i,j,ant);
 						if(moveTo != nullptr) {
@@ -119,18 +119,42 @@ int Grid::run() {
 			}
 			for(int i = 0; i < sizeOfGrid; i++) {
 				for(int j = 0; j < sizeOfGrid; j++) {
-					//loop thru and step all of the ants
+					Cell* theCell = &myGridCells_ptr_array[i][j];
+					if(theCell->getOccupant() == ant && !theCell->getCellOwner()->getStepRan()) {
+						//MOVING
+						Cell* moveTo = findOpenCell(i,j,empty);
+						if(moveTo != nullptr) {
+							Organism* ant = moveTo->getCellOwner();
+							theCell->setOccupant(empty);
+							ant->move(moveTo);
+						}
+						else {
+							moveTo = theCell;
+						}
+						//BREEDING
+						Cell* breedSpot = findOpenCell(moveTo->getRow(), moveTo->getCol(), empty);
+						if(breedSpot != nullptr && moveTo->getCellOwner()->canBreed()) {
+							moveTo->getCellOwner()->breed(breedSpot);
+							antsLeft++;
+						}
+					}
+				}
+			}
+			//loop through and set all stepRans to false so they run in the next step
+			for(int i = 0; i < sizeOfGrid; i++) {
+				for(int j = 0; j < sizeOfGrid; j++) {
+					Cell* theCell = &myGridCells_ptr_array[i][j];
+					if(theCell->getOccupant() != empty) {
+						theCell->getCellOwner()->setStepRan(false);
+					}
 				}
 			}
 		}
 		g++;
 		if(g == gens) done = true;
+		if(!done) printGrid();
 	}
 	return g;
-}
-
-void Grid::printEnding() {
-
 }
 
 void Grid::printGrid() {
@@ -139,10 +163,11 @@ void Grid::printGrid() {
 			Cell theCell = myGridCells_ptr_array[i][j];
 			if(theCell.getOccupant() == doodlebug) std::cout << "x";
 			else if(theCell.getOccupant() == ant) std::cout << "o";
-			else std::cout << " ";
+			else std::cout << "O";
 		}
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
 
 bool Grid::isValidLocation(int r, int c) {
@@ -152,6 +177,6 @@ bool Grid::isValidLocation(int r, int c) {
 }
 
 Grid::~Grid() {
-
+	delete[] myGridCells_ptr_array;
 }
 
