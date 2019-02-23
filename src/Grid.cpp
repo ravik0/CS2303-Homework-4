@@ -30,6 +30,8 @@ Grid::Grid(int nSquaresOnASide, int doodlebugs, int ants, int g,int seed, int st
 			myGridCells_ptr_array[i][j].setPosition(i, j);
 		}
 	}
+	setUpGrid(doodlebugs,doodlebug);
+	setUpGrid(ants,ant);
 }
 
 bool Grid::setCellOccupant(int r, int c, occupationStatus g)
@@ -90,6 +92,11 @@ int Grid::run() {
 	while(!done) {
 		if(antsLeft <= 0 || doodleLeft <= 0) done = true; //if no more ants or doodlebugs, we're done
 		if(!done) {
+			if(pause != 0)
+			{
+				std::cout << "Paused waiting for input." << std::endl;
+				getc(stdin);//just waits for user input
+			}
 			for(int i = 0; i < sizeOfGrid; i++) {
 				for(int j = 0; j < sizeOfGrid; j++) {
 					Cell* theCell = &myGridCells_ptr_array[i][j];
@@ -167,11 +174,6 @@ int Grid::run() {
 		if(g == gens) done = true;
 		if(!done) {
 			printGrid();
-			if(pause != 0)
-			{
-				std::cout << "Paused waiting for input." << std::endl;
-				getc(stdin);//just waits for user input
-			}
 		}
 	}
 	return g;
@@ -202,6 +204,21 @@ int Grid::getAntCount() {
 
 int Grid::getDoodleCount() {
 	return doodleLeft;
+}
+
+void Grid::setUpGrid(int number, occupationStatus toSetUp) {
+	if(number <= 0) return;
+	else {
+		int row = rand()%sizeOfGrid;
+		int col = rand()%sizeOfGrid;
+		if(isValidLocation(row,col) && myGridCells_ptr_array[row][col].getOccupant() == empty) {
+			myGridCells_ptr_array[row][col].setOccupant(toSetUp);
+			setUpGrid(number-1,toSetUp);
+		}
+		else {
+			setUpGrid(number,toSetUp);
+		}
+	}
 }
 Grid::~Grid() {
 

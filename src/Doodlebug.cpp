@@ -7,7 +7,7 @@
 
 #include "Doodlebug.h"
 
-Doodlebug::Doodlebug(int r, int c) : Organism(false) {
+Doodlebug::Doodlebug(int r, int c) : Organism() {
 	row = r;
 	column = c;
 	timeStepsSurvived = 0;

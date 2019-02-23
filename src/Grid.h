@@ -21,6 +21,7 @@ public:
 	int getAntCount();
 	int getDoodleCount();
 	void printGrid();
+	void setUpGrid(int number, occupationStatus toSetUp);
 private:
 	int sizeOfGrid;
 	int gens;

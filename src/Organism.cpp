@@ -7,7 +7,7 @@
 
 #include "Organism.h"
 
-Organism::Organism(bool b) {
+Organism::Organism() {
 	timeStepsSurvived = 0;
 	stepRan = false;
 }

@@ -8,7 +8,7 @@
 #include "Ant.h"
 #include "Cell.h"
 
-Ant::Ant(int r, int c) : Organism(true)
+Ant::Ant(int r, int c) : Organism()
 {
 	row = r;
 	col = c;

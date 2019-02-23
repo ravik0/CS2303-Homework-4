@@ -13,7 +13,7 @@ class Cell;
 
 class Organism {
 public:
-	Organism(bool b = false);
+	Organism();
 	virtual bool move(Cell* newCell)=0;
 	virtual bool breed(Cell* newCell)=0;
 	virtual bool canBreed()=0;
