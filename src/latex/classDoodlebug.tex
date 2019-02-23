@@ -1,0 +1,225 @@
+\section{Doodlebug Class Reference}
+\label{classDoodlebug}\index{Doodlebug@{Doodlebug}}
+
+
+{\ttfamily \#include $<$Doodlebug.\+h$>$}
+
+Inheritance diagram for Doodlebug\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDoodlebug}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Doodlebug} (int r, int c)
+\item 
+bool \textbf{ move} (\textbf{ Cell} $\ast$new\+Cell)
+\item 
+bool \textbf{ breed} (\textbf{ Cell} $\ast$new\+Cell)
+\item 
+bool \textbf{ starve} ()
+\item 
+int \textbf{ get\+Row} ()
+\item 
+int \textbf{ get\+Col} ()
+\item 
+\textbf{ $\sim$\+Doodlebug} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ row}
+\item 
+int \textbf{ column}
+\item 
+int \textbf{ steps\+Without\+Eating} = 0
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The doodlebug class is a subclass of the \doxyref{Organism}{p.}{classOrganism} class, is eligable to breed after surviving 8 turns, can starve after not eating for 3 turns, can eat ants by moving into the cell that they are in, and will always move before the ants. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classDoodlebug_a0009927ec98eb6203900af3637fb3e3a}} 
+\index{Doodlebug@{Doodlebug}!Doodlebug@{Doodlebug}}
+\index{Doodlebug@{Doodlebug}!Doodlebug@{Doodlebug}}
+\subsubsection{Doodlebug()}
+{\footnotesize\ttfamily Doodlebug\+::\+Doodlebug (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+Creates a new \doxyref{Doodlebug}{p.}{classDoodlebug}, which is also an \doxyref{Organism}{p.}{classOrganism} 
+\begin{DoxyParams}{Parameters}
+{\em r} & the row that this doodlebug resides in \\
+\hline
+{\em c} & the column that this doodlebug resides in \\
+\hline
+\end{DoxyParams}
+
+
+References column, row, and Organism\+::time\+Steps\+Survived.
+
+\mbox{\label{classDoodlebug_ac318cc9acbd9a3af52348a236070d891}} 
+\index{Doodlebug@{Doodlebug}!````~Doodlebug@{$\sim$\+Doodlebug}}
+\index{````~Doodlebug@{$\sim$\+Doodlebug}!Doodlebug@{Doodlebug}}
+\subsubsection{$\sim$\+Doodlebug()}
+{\footnotesize\ttfamily Doodlebug\+::$\sim$\+Doodlebug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the doodlebug instance. 
+
+Referenced by Tests2\+::test\+Doodlebug\+Breed(), Tests2\+::test\+Doodlebug\+Move(), and Tests2\+::test\+Doodlebug\+Starve().
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classDoodlebug_a619223ecb7063d9bbd88c53105dfab64}} 
+\index{Doodlebug@{Doodlebug}!breed@{breed}}
+\index{breed@{breed}!Doodlebug@{Doodlebug}}
+\subsubsection{breed()}
+{\footnotesize\ttfamily bool Doodlebug\+::breed (\begin{DoxyParamCaption}\item[{\textbf{ Cell} $\ast$}]{new\+Cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Breeds a new doodlebug into the cell denoted by new\+Cell if the doodlebug is eligable to breed. 
+\begin{DoxyParams}{Parameters}
+{\em new\+Cell} & the cell to breed into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if bred, false if it didn\textquotesingle{}t 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Organism} \doxyref{}{p.}{classOrganism_a049af9fd24e663d524c21f0e6863e9a9}.
+
+
+
+References doodlebug, empty, Cell\+::get\+Cell\+Owner(), Cell\+::set\+Occupant(), Organism\+::set\+Step\+Ran(), and Organism\+::time\+Steps\+Survived.
+
+
+
+Referenced by Tests2\+::test\+Doodlebug\+Breed().
+
+\mbox{\label{classDoodlebug_aa311d47bffaf0e68785b8a1472537807}} 
+\index{Doodlebug@{Doodlebug}!get\+Col@{get\+Col}}
+\index{get\+Col@{get\+Col}!Doodlebug@{Doodlebug}}
+\subsubsection{get\+Col()}
+{\footnotesize\ttfamily int Doodlebug\+::get\+Col (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the column of the cell that this doodlebug resides in \begin{DoxyReturn}{Returns}
+the column 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Organism} \doxyref{}{p.}{classOrganism_ad61a864b21048f8304676a00d5c52800}.
+
+
+
+References column.
+
+
+
+Referenced by move(), and Tests2\+::test\+Doodlebug\+Move().
+
+\mbox{\label{classDoodlebug_afb3ba6dc552b2c83caf316405db616ec}} 
+\index{Doodlebug@{Doodlebug}!get\+Row@{get\+Row}}
+\index{get\+Row@{get\+Row}!Doodlebug@{Doodlebug}}
+\subsubsection{get\+Row()}
+{\footnotesize\ttfamily int Doodlebug\+::get\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the row of the cell that this doodlebug resides in \begin{DoxyReturn}{Returns}
+the row 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Organism} \doxyref{}{p.}{classOrganism_a70700de2afe1358078cbc83581663096}.
+
+
+
+References row.
+
+
+
+Referenced by Tests2\+::test\+Doodlebug\+Move().
+
+\mbox{\label{classDoodlebug_a779e9b9fb85a8ef9814ae0d1e800d971}} 
+\index{Doodlebug@{Doodlebug}!move@{move}}
+\index{move@{move}!Doodlebug@{Doodlebug}}
+\subsubsection{move()}
+{\footnotesize\ttfamily bool Doodlebug\+::move (\begin{DoxyParamCaption}\item[{\textbf{ Cell} $\ast$}]{new\+Cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Moves the doodlebug to the cell specified N\+O\+TE\+: The user must remove this doodlebug from its current cell $\sim$before$\sim$ moving it to the new cell, as the doodlebug itself does not keep track of what cell it is in, that is the grid\textquotesingle{}s job 
+\begin{DoxyParams}{Parameters}
+{\em new\+Cell} & the new cell to put the doodlebug in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, it will not fail to move. 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Organism} \doxyref{}{p.}{classOrganism_a79604b094754b64cea38a6eaf3ac36dc}.
+
+
+
+References ant, column, doodlebug, get\+Col(), Cell\+::get\+Occupant(), Cell\+::get\+Row(), row, Cell\+::set\+Occupant(), Cell\+::set\+Organism(), Organism\+::step\+Ran, steps\+Without\+Eating, and Organism\+::time\+Steps\+Survived.
+
+
+
+Referenced by Tests2\+::test\+Doodlebug\+Breed(), Tests2\+::test\+Doodlebug\+Move(), and Tests2\+::test\+Doodlebug\+Starve().
+
+\mbox{\label{classDoodlebug_a7f1c26c8458f3811680c778362c0e374}} 
+\index{Doodlebug@{Doodlebug}!starve@{starve}}
+\index{starve@{starve}!Doodlebug@{Doodlebug}}
+\subsubsection{starve()}
+{\footnotesize\ttfamily bool Doodlebug\+::starve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks to see if the doodlebug starves N\+O\+TE\+: The user must deal with actually killing off the doodlebug, as this only checks to see if the doodlebug is eligable to starve. \begin{DoxyReturn}{Returns}
+true if the doodlebug will starve, false if it is fine 
+\end{DoxyReturn}
+
+
+References steps\+Without\+Eating.
+
+
+
+Referenced by Grid\+::run(), and Tests2\+::test\+Doodlebug\+Starve().
+
+
+
+\subsection{Field Documentation}
+\mbox{\label{classDoodlebug_ac3a53739f9b05a793724a78c2bd29e69}} 
+\index{Doodlebug@{Doodlebug}!column@{column}}
+\index{column@{column}!Doodlebug@{Doodlebug}}
+\subsubsection{column}
+{\footnotesize\ttfamily int Doodlebug\+::column\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Doodlebug(), get\+Col(), and move().
+
+\mbox{\label{classDoodlebug_a4ab3657542999f3f83988ff1e113d477}} 
+\index{Doodlebug@{Doodlebug}!row@{row}}
+\index{row@{row}!Doodlebug@{Doodlebug}}
+\subsubsection{row}
+{\footnotesize\ttfamily int Doodlebug\+::row\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by Doodlebug(), get\+Row(), move(), and Grid\+::set\+Up\+Grid().
+
+\mbox{\label{classDoodlebug_a440e97dfc162db5fab4d632aab30f266}} 
+\index{Doodlebug@{Doodlebug}!steps\+Without\+Eating@{steps\+Without\+Eating}}
+\index{steps\+Without\+Eating@{steps\+Without\+Eating}!Doodlebug@{Doodlebug}}
+\subsubsection{steps\+Without\+Eating}
+{\footnotesize\ttfamily int Doodlebug\+::steps\+Without\+Eating = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referenced by move(), and starve().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Doodlebug.\+h}\item 
+\textbf{ Doodlebug.\+cpp}\end{DoxyCompactItemize}

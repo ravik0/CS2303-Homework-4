@@ -1,0 +1,72 @@
+!!!Hello the classmates, it's time for fun with C++!!!
+Running testFindEmptyCell
+ o   
+o o  
+   o 
+  o  
+     
+
+findEmptyCell passed
+Running testValidLocation
+validLocation passed
+Running testCounting
+ox  x
+  ooo
+oxxoo
+ x  o
+  oo 
+
+Number of ants: 10, Number of ants getAntCount says: 10
+Number of doodlebugs: 5, Number of doodlebugs getDoodleCount says: 5
+getAntCount and getDoodleCount passed
+Running testGetSetOccupant()
+o    
+     
+ x   
+ o   
+    o
+
+0 means empty, 1 means ant, 2 means doodlebug
+Cell 3,1 should have occupant ant, has occupant 1
+Cell 0,0 should have occupant ant, has occupant 1
+Cell 4,4 should have occupant ant, has occupant 1
+Cell 2,1 should have occupant doodlebug, has occupant 2
+Cell 2,2 should have occupant empty, has occupant 0
+getCellOccupant and setCellOccupant passed
+Running testDoodlebugMove
+Cell position is (3,2)
+Cell's current occupant is 0 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Doodlebug position is (2,1)
+Commencing movement
+Movement complete
+Doodlebug position is (3,2)
+Cell's current occupant is 2 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+doodlebug's move function passed
+Running testDoodlebugBreed
+Doodlebug has moved 4 times. It should not be able to breed. It was 1 that it was unable to breed. 0 = false, 1 = true
+The breeding cell's current occupant is 0 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Doodlebug has moved 8 times. It should be able to breed. It was 1 that it was able to breed. 0 = false, 1 = true
+The breeding cell's current occupant is 2 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Doodlebug has moved 3 more times. It should not be able to breed. It was 1 that it was unable to breed. 0 = false, 1 = true
+doodlebug's breed function passed
+Running testDoodlebugStarve
+Doodlebug has moved 2 times. It should not starve. It was 1 that it did not starve. 0 = false, 1 = true
+Doodlebug has moved 3 times. It should starve. It was 1 that it starved. 0 = false, 1 = true
+doodlebug's starve function passed
+Running testAntMove
+Cell position is (3,2)
+Cell's current occupant is 0 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Ant position is (2,1)
+Commencing movement
+Movement complete
+Ant position is (3,2)
+Cell's current occupant is 1 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+ant's move function passed
+Running testDoodlebugBreed
+Ant has moved 2 times. It should not be able to breed. It was 1 that it was unable to breed. 0 = false, 1 = true
+The breeding cell's current occupant is 0 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Ant has moved 3 times. It should be able to breed. It was 1 that it was able to breed. 0 = false, 1 = true
+The breeding cell's current occupant is 1 and in this case, 0 is empty, 1 is ant, 2 is doodlebug
+Ant has moved 2 more times. It should not be able to breed. It was 1 that it was unable to breed. 0 = false, 1 = true
+ant's breed function passed
+tests end

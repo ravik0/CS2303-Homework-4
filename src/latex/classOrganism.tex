@@ -1,0 +1,180 @@
+\section{Organism Class Reference}
+\label{classOrganism}\index{Organism@{Organism}}
+
+
+{\ttfamily \#include $<$Organism.\+h$>$}
+
+Inheritance diagram for Organism\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOrganism}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Organism} ()
+\item 
+virtual bool \textbf{ move} (\textbf{ Cell} $\ast$new\+Cell)=0
+\item 
+virtual bool \textbf{ breed} (\textbf{ Cell} $\ast$new\+Cell)=0
+\item 
+virtual int \textbf{ get\+Row} ()=0
+\item 
+virtual int \textbf{ get\+Col} ()=0
+\item 
+virtual \textbf{ $\sim$\+Organism} ()
+\item 
+void \textbf{ set\+Step\+Ran} (bool b)
+\item 
+bool \textbf{ get\+Step\+Ran} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ time\+Steps\+Survived}
+\item 
+bool \textbf{ step\+Ran}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The organism class is a superclass for the \doxyref{Ant}{p.}{classAnt} and \doxyref{Doodlebug}{p.}{classDoodlebug} class, and should never be instantiated as an actual object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{classOrganism_aeb16ee24b64839584b4862384d0b53fe}} 
+\index{Organism@{Organism}!Organism@{Organism}}
+\index{Organism@{Organism}!Organism@{Organism}}
+\subsubsection{Organism()}
+{\footnotesize\ttfamily Organism\+::\+Organism (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a new \doxyref{Organism}{p.}{classOrganism} 
+
+References step\+Ran, and time\+Steps\+Survived.
+
+\mbox{\label{classOrganism_aa5aa2e9fc3134358c929fa0c9d230c3b}} 
+\index{Organism@{Organism}!````~Organism@{$\sim$\+Organism}}
+\index{````~Organism@{$\sim$\+Organism}!Organism@{Organism}}
+\subsubsection{$\sim$\+Organism()}
+{\footnotesize\ttfamily Organism\+::$\sim$\+Organism (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destroys the organism 
+
+Referenced by Grid\+::run().
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{classOrganism_a049af9fd24e663d524c21f0e6863e9a9}} 
+\index{Organism@{Organism}!breed@{breed}}
+\index{breed@{breed}!Organism@{Organism}}
+\subsubsection{breed()}
+{\footnotesize\ttfamily virtual bool Organism\+::breed (\begin{DoxyParamCaption}\item[{\textbf{ Cell} $\ast$}]{new\+Cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Ant} \doxyref{}{p.}{classAnt_a083301b2522ea5fce044adcd8b442e14}, and \textbf{ Doodlebug} \doxyref{}{p.}{classDoodlebug_a619223ecb7063d9bbd88c53105dfab64}.
+
+
+
+Referenced by Grid\+::run().
+
+\mbox{\label{classOrganism_ad61a864b21048f8304676a00d5c52800}} 
+\index{Organism@{Organism}!get\+Col@{get\+Col}}
+\index{get\+Col@{get\+Col}!Organism@{Organism}}
+\subsubsection{get\+Col()}
+{\footnotesize\ttfamily virtual int Organism\+::get\+Col (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Ant} \doxyref{}{p.}{classAnt_a3c31dc577ebf913d246c16db3b1ed8e2}, and \textbf{ Doodlebug} \doxyref{}{p.}{classDoodlebug_aa311d47bffaf0e68785b8a1472537807}.
+
+\mbox{\label{classOrganism_a70700de2afe1358078cbc83581663096}} 
+\index{Organism@{Organism}!get\+Row@{get\+Row}}
+\index{get\+Row@{get\+Row}!Organism@{Organism}}
+\subsubsection{get\+Row()}
+{\footnotesize\ttfamily virtual int Organism\+::get\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Ant} \doxyref{}{p.}{classAnt_acef79a2f69e2493dc3067db4b41783a9}, and \textbf{ Doodlebug} \doxyref{}{p.}{classDoodlebug_afb3ba6dc552b2c83caf316405db616ec}.
+
+\mbox{\label{classOrganism_a7555c4305d72ab65af1ff511fea768b4}} 
+\index{Organism@{Organism}!get\+Step\+Ran@{get\+Step\+Ran}}
+\index{get\+Step\+Ran@{get\+Step\+Ran}!Organism@{Organism}}
+\subsubsection{get\+Step\+Ran()}
+{\footnotesize\ttfamily bool Organism\+::get\+Step\+Ran (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the step\+Ran boolean, which is a boolean that tells you whether this organism has been touched by the program in this generation \begin{DoxyReturn}{Returns}
+true if the program has touched this organism this generation, false otherwise 
+\end{DoxyReturn}
+
+
+References step\+Ran.
+
+
+
+Referenced by Grid\+::run().
+
+\mbox{\label{classOrganism_a79604b094754b64cea38a6eaf3ac36dc}} 
+\index{Organism@{Organism}!move@{move}}
+\index{move@{move}!Organism@{Organism}}
+\subsubsection{move()}
+{\footnotesize\ttfamily virtual bool Organism\+::move (\begin{DoxyParamCaption}\item[{\textbf{ Cell} $\ast$}]{new\+Cell }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ Ant} \doxyref{}{p.}{classAnt_acf414aad7c33adf645f86d4a0a8523b4}, and \textbf{ Doodlebug} \doxyref{}{p.}{classDoodlebug_a779e9b9fb85a8ef9814ae0d1e800d971}.
+
+
+
+Referenced by Grid\+::run().
+
+\mbox{\label{classOrganism_aba1a6c2f89f6332ace1195f3c4071b9f}} 
+\index{Organism@{Organism}!set\+Step\+Ran@{set\+Step\+Ran}}
+\index{set\+Step\+Ran@{set\+Step\+Ran}!Organism@{Organism}}
+\subsubsection{set\+Step\+Ran()}
+{\footnotesize\ttfamily void Organism\+::set\+Step\+Ran (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+Sets the step\+Ran boolean, which is a boolean that tells you whether this organism has been touched by the program in this generation 
+\begin{DoxyParams}{Parameters}
+{\em b} & the boolean to set it to \\
+\hline
+\end{DoxyParams}
+
+
+References step\+Ran.
+
+
+
+Referenced by Doodlebug\+::breed(), Ant\+::breed(), and Grid\+::run().
+
+
+
+\subsection{Field Documentation}
+\mbox{\label{classOrganism_ab7bbee19db5a698dddfb4e8b1a34a355}} 
+\index{Organism@{Organism}!step\+Ran@{step\+Ran}}
+\index{step\+Ran@{step\+Ran}!Organism@{Organism}}
+\subsubsection{step\+Ran}
+{\footnotesize\ttfamily bool Organism\+::step\+Ran\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by get\+Step\+Ran(), Doodlebug\+::move(), Ant\+::move(), Organism(), and set\+Step\+Ran().
+
+\mbox{\label{classOrganism_aafc819c5b83a5634dd13f1ac54596cdc}} 
+\index{Organism@{Organism}!time\+Steps\+Survived@{time\+Steps\+Survived}}
+\index{time\+Steps\+Survived@{time\+Steps\+Survived}!Organism@{Organism}}
+\subsubsection{time\+Steps\+Survived}
+{\footnotesize\ttfamily int Organism\+::time\+Steps\+Survived\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Referenced by Ant\+::\+Ant(), Doodlebug\+::breed(), Ant\+::breed(), Doodlebug\+::\+Doodlebug(), Doodlebug\+::move(), Ant\+::move(), and Organism().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ Organism.\+h}\item 
+\textbf{ Organism.\+cpp}\end{DoxyCompactItemize}

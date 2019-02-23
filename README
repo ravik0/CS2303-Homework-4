@@ -1,0 +1,16 @@
+	This is a simulation of ants and doodlebugs. Doodlebugs are denoted by "x"'s on the game board, while ants
+are denoted by "o"'s on the board. 
+	Doodlebugs always move before the ants, and have 3 actions. They can move into
+a cell, which can either be occupied by an ant (which it then eats) or not occupied at all. They can also starve if
+they have not eaten after 3 time steps. Finally, doodlebugs can also breed after surviving for 8 time steps. They must
+breed into an open cell. If a doodlebug starves, it can not breed.
+	Ants have 2 actions. They can move into a cell, which must be unoccupied. They can also breed after surviving
+for 3 time steps. They must breed into an open cell. An ant can not starve, it can only be eaten.
+	To run the program, you can give it up to 6 arguments in this fashion:
+/Ants gridSize #doodlebugs #ants #generations seed pause
+gridSize denotes the length of one side of the square that the game happens it. Its default value is 20.
+#doodlebugs denotes the amount of doodlebugs that start. Its default value is 5.
+#ants denotes the amount of ants that start. Its default value is 100.
+#generations denotes the amount of time steps that the program will run. Its default value is 1000
+seed is the seed that the program will use to randomize the values. Its default value is 1.
+pause can be any integer, any nonzero integer forces the program to wait for user input before continuing. Its default value is 0.
