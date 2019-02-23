@@ -6,19 +6,56 @@
  */
 
 #include "Production.h"
+#include "Grid.h"
+#include <iostream>
+#include <string>
 
 Production::Production(int argc, char* argv[]) {
-	// TODO Auto-generated constructor stub
-	timestepsLeft = 100; //initialize available timesteps
+	char** dump = nullptr;
+	if(argc >= 2) {
+		gridSize = strtol(argv[1], dump, 10);
+	}
+	if(argc >= 3) {
+		doodle = strtol(argv[2], dump, 10);
+	}
+	if(argc >= 4) {
+		ant = strtol(argv[3], dump, 10);
+	}
+	if(argc >= 5) {
+		time_steps = strtol(argv[4], dump, 10);
+	}
+	if(argc >= 6) {
+		seed = strtol(argv[5], dump, 10);
+	}
+	if(argc >= 7) {
+		pause = strtol(argv[6], dump, 10);
+	}
 }
 
-bool Production::runProduction()
+bool Production::runProduction(int argc, char* argv[])
 {
+	srand(seed);
 	bool result = true;
-	while(timestepsLeft-- > 0)
-	{
-		//dbs.step;
-		//ants.step;
+	if(doodle + ant > gridSize*gridSize) {
+		std::cout << "Too many doodlebugs and ants! Please increase grid size or lower" <<
+				"the amount of ants and/or doodlebugs you have!" << std::endl;
+		result = false;
+	}
+	else {
+		Grid* myGrid = new Grid(gridSize, doodle, ant, time_steps, seed, pause);
+		int gensRun = myGrid->run();
+		std::cout << "Final Results" << std::endl;
+		std::cout << "/Ants ";
+		for(int i = 1; i < argc; i++) {
+			std::cout << argv[i] << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "Generations Run: " << gensRun << std::endl;
+		std::cout << "Beginning Ant Count: " << ant << ", End Ant Count: " << myGrid->getAntCount() << std::endl;
+		std::cout << "Beginning Doodlebug Count: " << doodle << ", End Doodlebug Count: " << myGrid->getDoodleCount() << std::endl;
+		std::cout << "Final Board Configuration" << std::endl;
+		myGrid->printGrid();
+		myGrid->~Grid();
 	}
 	return result;
 }

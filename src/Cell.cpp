@@ -29,17 +29,14 @@ Organism* Cell::getCellOwner() {
 bool Cell::setOccupant(occupationStatus g)
 {
 	bool result = true;
-	if(guest==empty)
-	{
-		guest = g;
-		if(guest == ant) {
-			guy = new Ant(row, column);
-		}
-		else {
-			guy = new Doodlebug(row, column);
-		}
+	guest = g;
+	if(guest == ant) {
+		guy = new Ant(row, column);
 	}
-	else if(g == empty) {
+	else if(guest == doodlebug){
+		guy = new Doodlebug(row, column);
+	}
+	if(g == empty) {
 		guy = nullptr;
 		guest = g;
 		result = true;
@@ -64,7 +61,6 @@ int Cell::getCol() {
 	return column;
 }
 Cell::~Cell() {
-	if(guy != nullptr) ~guy;
-	delete this;
+
 }
 

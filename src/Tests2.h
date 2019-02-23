@@ -23,6 +23,8 @@ public:
 	bool doodleEatTest();
 	bool doodleDietest();
 	bool testFindEmptyCell();
+	bool testRun();
+
 
 	virtual ~Tests2();
 };

@@ -16,7 +16,7 @@ Doodlebug::Doodlebug(int r, int c) : Organism(false) {
 bool Doodlebug::move(Cell* newCell)
 {
 	bool status = true;
-	if(newCell->getOccupant() != empty) {
+	if(newCell->getOccupant() == doodlebug) {
 		status = false;
 	}
 	else if(newCell->getOccupant() == empty) {
@@ -66,6 +66,6 @@ int Doodlebug::getCol() {
 	return column;
 }
 Doodlebug::~Doodlebug() {
-	delete this;
+
 }
 

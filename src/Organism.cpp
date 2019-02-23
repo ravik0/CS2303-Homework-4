@@ -21,6 +21,6 @@ bool Organism::getStepRan() {
 }
 
 Organism::~Organism() {
-	delete this;
+
 }
 

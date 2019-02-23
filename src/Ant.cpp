@@ -56,7 +56,6 @@ int Ant::getRow() {
 	return row;
 }
 Ant::~Ant() {
-	delete this;
 
 }
 

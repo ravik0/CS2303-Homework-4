@@ -18,7 +18,8 @@ public:
 	Cell* findOpenCell(int r, int c, occupationStatus toLookFor);
 	bool isValidLocation(int r, int c);
 	int run();
-	void printEnding();
+	int getAntCount();
+	int getDoodleCount();
 	void printGrid();
 private:
 	int sizeOfGrid;

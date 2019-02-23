@@ -40,7 +40,8 @@ bool Tests2::doTests()
 	//see whether they die
 	bool ok10 = doodleDietest();
 	bool ok11 = testFindEmptyCell();
-	results = ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10 && ok11;
+	bool ok12 = testRun();
+	results = ok1 && ok2 && ok3 && ok4 && ok5 && ok6 && ok7 && ok8 && ok9 && ok10 && ok11 && ok12;
 	return results;
 }
 bool Tests2::gridTest()
@@ -166,8 +167,22 @@ bool Tests2::testFindEmptyCell() {
 	Cell* emptyCell2 = theGrid->findOpenCell(0,0, empty);
 	if(emptyCell2 == nullptr) ok2 = true;
 	Cell* antCell = theGrid->findOpenCell(3,3,ant);
-	if(antCell->getRow() == 3 && antCell->getCol() == 2) ok3 = true;
+	if((antCell->getRow() == 3 && antCell->getCol() == 2) ||
+			(antCell->getRow() == 2 && antCell->getCol() == 3)) ok3 = true;
 	return ok1 && ok2 && ok3;
+}
+bool Tests2::testRun() {
+	bool ok1 = true;
+	Grid* theGrid = new Grid(5,1,5);
+	theGrid->setCellOccupant(3, 2, doodlebug);
+	theGrid->setCellOccupant(0,0,ant);
+	theGrid->setCellOccupant(1,0,ant);
+	theGrid->setCellOccupant(2,0,ant);
+	theGrid->setCellOccupant(3,0,ant);
+	theGrid->setCellOccupant(4,0,ant);
+	theGrid->printGrid();
+	theGrid->run();
+	return ok1;
 }
 
 Tests2::~Tests2() {

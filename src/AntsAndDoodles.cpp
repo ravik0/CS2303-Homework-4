@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     if(ts.doTests())
 	{
 		Production ps = Production(argc, argv);
-		bool ok = ps.runProduction();
+		bool ok = ps.runProduction(argc, argv);
 		if(ok)
 		{
 			puts("Production worked.");
@@ -31,6 +31,9 @@ int main(int argc, char* argv[])
 		}
 		ps.~Production(); //done with production
 	}
+    else {
+    	puts("Test failed");
+    }
     ts.~Tests2(); //done with tests
 
 

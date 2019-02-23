@@ -44,31 +44,44 @@ occupationStatus Grid::getCellOccupant(int r, int c)
 
 Cell* Grid::findOpenCell(int r, int c, occupationStatus toLookFor) {
 	bool done = false;
-	bool upDone = false;
-	bool downDone = false;
-	bool leftDone = false;
-	bool rightDone = false;
+	Cell* ret = nullptr;
+	bool upDone = !isValidLocation(r-1,c);
+	bool downDone = !isValidLocation(r+1,c);
+	bool leftDone = !isValidLocation(r,c-1);
+	bool rightDone = !isValidLocation(r,c+1);
 	while(!done) {
 		int random = rand()%4;
-		if(random == 0 && !downDone && isValidLocation(r+1,c)) {
-			if(getCellOccupant(r+1, c) == toLookFor) return &myGridCells_ptr_array[r+1][c];
+		if(random == 0 && !downDone) {
+			if(getCellOccupant(r+1, c) == toLookFor) {
+				ret = &myGridCells_ptr_array[r+1][c];
+				done = true;
+			}
 			else downDone = true;
 		}
-		else if(random == 1 && !upDone && isValidLocation(r-1,c)) {
-			if(getCellOccupant(r-1, c) == toLookFor) return &myGridCells_ptr_array[r-1][c];
+		else if(random == 1 && !upDone) {
+			if(getCellOccupant(r-1, c) == toLookFor) {
+				ret = &myGridCells_ptr_array[r-1][c];
+				done = true;
+			}
 			else upDone = true;
 		}
-		else if(random == 2 && !rightDone && isValidLocation(r,c+1)) {
-			if(getCellOccupant(r, c+1) == toLookFor) return &myGridCells_ptr_array[r][c+1];
+		else if(random == 2 && !rightDone) {
+			if(getCellOccupant(r, c+1) == toLookFor) {
+				ret = &myGridCells_ptr_array[r][c+1];
+				done = true;
+			}
 			else rightDone = true;
 		}
-		else if(random == 3 && !leftDone && isValidLocation(r,c-1)) {
-			if(getCellOccupant(r, c-1) == toLookFor) return &myGridCells_ptr_array[r][c-1];
+		else if(random == 3 && !leftDone) {
+			if(getCellOccupant(r, c-1) == toLookFor) {
+				ret = &myGridCells_ptr_array[r][c-1];
+				done = true;
+			}
 			else leftDone = true;
 		}
-		else done = true;
+		else if(downDone && leftDone && rightDone && upDone) done = true;
 	}
-	return nullptr;
+	return ret;
 }
 
 int Grid::run() {
@@ -124,7 +137,7 @@ int Grid::run() {
 						//MOVING
 						Cell* moveTo = findOpenCell(i,j,empty);
 						if(moveTo != nullptr) {
-							Organism* ant = moveTo->getCellOwner();
+							Organism* ant = theCell->getCellOwner();
 							theCell->setOccupant(empty);
 							ant->move(moveTo);
 						}
@@ -152,7 +165,14 @@ int Grid::run() {
 		}
 		g++;
 		if(g == gens) done = true;
-		if(!done) printGrid();
+		if(!done) {
+			printGrid();
+			if(pause != 0)
+			{
+				std::cout << "Paused waiting for input." << std::endl;
+				getc(stdin);//just waits for user input
+			}
+		}
 	}
 	return g;
 }
@@ -163,7 +183,7 @@ void Grid::printGrid() {
 			Cell theCell = myGridCells_ptr_array[i][j];
 			if(theCell.getOccupant() == doodlebug) std::cout << "x";
 			else if(theCell.getOccupant() == ant) std::cout << "o";
-			else std::cout << "O";
+			else std::cout << " ";
 		}
 		std::cout << std::endl;
 	}
@@ -176,7 +196,14 @@ bool Grid::isValidLocation(int r, int c) {
 	return retValue;
 }
 
+int Grid::getAntCount() {
+	return antsLeft;
+}
+
+int Grid::getDoodleCount() {
+	return doodleLeft;
+}
 Grid::~Grid() {
-	delete[] myGridCells_ptr_array;
+
 }
 
