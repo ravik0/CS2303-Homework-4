@@ -63,7 +63,7 @@ bool Production::runProduction(int argc, char* argv[])
 			std::cout << argv[i] << " ";
 		}
 		std::cout << std::endl;
-		std::cout << "Generations Run: " << gensRun << std::endl;
+		std::cout << "Generations Ran: " << gensRun << std::endl;
 		std::cout << "Beginning Ant Count: " << ant << ", End Ant Count: " << myGrid->getAntCount() << std::endl;
 		std::cout << "Beginning Doodlebug Count: " << doodle << ", End Doodlebug Count: " << myGrid->getDoodleCount() << std::endl;
 		std::cout << "Final Board Configuration" << std::endl;

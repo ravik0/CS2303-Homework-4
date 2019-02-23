@@ -126,7 +126,8 @@ Cell* Grid::findOpenCell(int r, int c, occupationStatus toLookFor) {
  */
 int Grid::run() {
 	bool done = false; //are we done or not
-	int g = 0; //number of generations ran
+	int g = 1; //number of generations ran
+	printGrid();
 	while(!done) {
 		if(antsLeft <= 0 || doodleLeft <= 0) done = true; //if no more ants or doodlebugs, we're done
 		if(!done) {
@@ -214,9 +215,7 @@ int Grid::run() {
 		}
 		g++;
 		if(g == gens) done = true; //if we have ran through the amount of generations specified, then we're done
-		if(!done) {
-			printGrid(); //if we're not done, print the grid.
-		}
+		printGrid(); //print the grid.
 	}
 	return g;
 }
@@ -282,6 +281,7 @@ void Grid::setUpGrid(int number, occupationStatus toSetUp) {
 	}
 	//finishes once we have set up number amount of toSetUp.
 }
+
 /**
  * Destroys this object.
  */

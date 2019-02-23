@@ -23,15 +23,12 @@ Doodlebug::Doodlebug(int r, int c) : Organism() {
  * NOTE: The user must remove this doodlebug from its current cell ~before~ moving it to the new cell, as the doodlebug itself does
  * not keep track of what cell it is in, that is the grid's job
  * @param newCell the new cell to put the doodlebug in
- * @return true if move, false if fail
+ * @return true, it will not fail to move.
  */
 bool Doodlebug::move(Cell* newCell)
 {
 	bool status = true;
-	if(newCell->getOccupant() == doodlebug) {
-		status = false; //if we are moving it to a square with a doodlebug in it, don't move it
-	}
-	else if(newCell->getOccupant() == empty) {
+	if(newCell->getOccupant() != ant) {
 		stepsWithoutEating++; //if we are moving to an empty square, it hasn't eaten 1 more tick
 	}
 	else if(newCell->getOccupant() == ant) {

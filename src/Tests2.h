@@ -12,19 +12,12 @@ class Tests2 {
 public:
 	Tests2();
 	bool doTests();
-	bool gridTest();
-	bool makeAntsTest();
-	bool antsMoveTest();
-	bool antsBreedTest();
-	bool antsDieTest();
-	bool makeDoodlesTest();
-	bool doodleMoveTest();
-	bool doodleBreedTest();
-	bool doodleEatTest();
-	bool doodleDietest();
-	bool testFindEmptyCell();
-	bool testRun();
-
+	bool testCounting();
+	bool testDoodlebugMove();
+	bool testDoodlebugBreed();
+	bool testDoodlebugStarve();
+	bool testAntMove();
+	bool testAntBreed();
 
 	virtual ~Tests2();
 };
