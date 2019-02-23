@@ -8,6 +8,9 @@
 #ifndef PRODUCTION_H_
 #define PRODUCTION_H_
 
+/**
+ * The production class runs the program as specified by the command line inputs
+ */
 class Production {
 public:
 	Production(int argc, char* argv[]);

@@ -9,6 +9,9 @@
 #define GRID_H_
 #include "Cell.h"
 
+/**
+ * The grid class contains the grid for the simulation, and handles running all of the calculations for the simulation as well.
+ */
 class Grid {
 public:
 	Grid(int nSquaresOnASide = 20, int doodlebugs = 5, int ants = 100, int g = 1000, int seed = 1, int pause = 0);

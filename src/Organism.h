@@ -11,12 +11,14 @@
 class Cell;
 #include "Cell.h"
 
+/**
+ * The organism class is a superclass for the Ant and Doodlebug class, and should never be instantiated as an actual object.
+ */
 class Organism {
 public:
 	Organism();
 	virtual bool move(Cell* newCell)=0;
 	virtual bool breed(Cell* newCell)=0;
-	virtual bool canBreed()=0;
 	virtual int getRow()=0;
 	virtual int getCol()=0;
 	virtual ~Organism();

@@ -12,7 +12,9 @@ class Organism;
 
 enum occupationStatus { empty, ant, doodlebug};
 
-
+/**
+ * The cell class contains the organism that is at the position in the grid, as well as the type of organism that is in it.
+ */
 class Cell {
 public:
 	Cell();

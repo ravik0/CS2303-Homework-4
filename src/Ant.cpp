@@ -8,6 +8,11 @@
 #include "Ant.h"
 #include "Cell.h"
 
+/**
+ * Creates a new ant, which is also an organism
+ * @param r the row this ant resides in
+ * @param c the column this ant resides in
+ */
 Ant::Ant(int r, int c) : Organism()
 {
 	row = r;
@@ -15,6 +20,13 @@ Ant::Ant(int r, int c) : Organism()
 	timeStepsSurvived = 0;
 }
 
+/**
+ * Moves the ant to the cell specified
+ * NOTE: The user must remove this ant from its current cell ~before~ moving it to the new cell, as the ant itself does
+ * not keep track of what cell it is in, that is the grid's job
+ * @param newCell the new cell to put the ant in
+ * @return true if move, false if fail
+ */
 bool Ant::move(Cell* newCell)
 {
 	bool status = true;
@@ -32,10 +44,15 @@ bool Ant::move(Cell* newCell)
 	return status;
 }
 
+/**
+ * Breeds a new ant into the cell denoted by newCell if the ant is eligable to breed.
+ * @param newCell the cell to breed into
+ * @return true if bred, false if it didn't
+ */
 bool Ant::breed(Cell* newCell)
 {
 	bool status = true;
-	if(newCell->getOccupant() != empty) status = false;
+	if(timeStepsSurvived < 3 || newCell->getOccupant() != empty) status = false;
 	else {
 		newCell->setOccupant(ant);
 		timeStepsSurvived = 0;
@@ -44,17 +61,25 @@ bool Ant::breed(Cell* newCell)
 	return status;
 }
 
-bool Ant::canBreed() {
-	return timeStepsSurvived >= 3;
-}
-
+/**
+ * Gets the column that this ant resides in
+ * @return the column
+ */
 int Ant::getCol() {
 	return col;
 }
 
+/**
+ * Gets the row that this ant resides in
+ * @return the row
+ */
 int Ant::getRow() {
 	return row;
 }
+
+/**
+ * Destroys the instance of the ant class
+ */
 Ant::~Ant() {
 
 }
