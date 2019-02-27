@@ -145,6 +145,7 @@ int Grid::run() {
 						//MOVING
 						Cell* moveTo = findOpenCell(i,j,ant); //look for ant to eat!
 						if(moveTo != nullptr) {
+							moveTo->getCellOwner()->~Organism();
 							antsLeft--; //if found, decrement the number of ants on the board
 						}
 						else {
@@ -286,6 +287,10 @@ void Grid::setUpGrid(int number, occupationStatus toSetUp) {
  * Destroys this object.
  */
 Grid::~Grid() {
-
+	for(int i = 0; i < sizeOfGrid; i++) {
+		for(int j = 0; j < sizeOfGrid; j++) {
+			myGridCells_ptr_array[i][j].~Cell();
+		}
+	}
 }
 

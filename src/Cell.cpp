@@ -101,6 +101,5 @@ int Cell::getCol() {
  * Destroys the instance of this cell.
  */
 Cell::~Cell() {
-
 }
 
